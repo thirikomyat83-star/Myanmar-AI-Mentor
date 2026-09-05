@@ -115,7 +115,7 @@ export default function ProgressPage() {
   const sortedSubjects = subjectEntries.sort((a: any, b: any) => b[1].avg_score - a[1].avg_score);
 
   const containerVariants = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } };
-  const itemVariants = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', bounce: 0.3 } } };
+  const itemVariants = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', bounce: 0.3 } } }as const;
 
   // ==========================================
   // UI Rendering
