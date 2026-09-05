@@ -1379,7 +1379,7 @@ export default function QuizGeneratorPage() {
     return lines.map((line, i) => {
       let formatted = line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-extrabold">$1</strong>');
       formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
-      formatted = formatted.replace(/```(.*?)```/gs, '<code class="bg-gray-100 px-2 py-0.5 rounded text-sm">$1</code>');
+      formatted = formatted.replace(/```(.*?)```/g, '<code class="bg-gray-100 px-2 py-0.5 rounded text-sm">$1</code>');
       formatted = formatted.replace(/`(.*?)`/g, '<code class="bg-gray-100 px-1 rounded text-sm">$1</code>');
       if (line.startsWith('### ')) {
         formatted = `<span class="text-lg font-extrabold text-[#3F4A3C]">${formatted.replace('### ', '')}</span>`;
