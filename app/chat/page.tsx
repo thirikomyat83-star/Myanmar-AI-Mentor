@@ -1886,7 +1886,7 @@ if (overrideText === '🎨 Diagram Guide' || (overrideText && overrideText.start
             }
         } else { subjectToSend = userTypedQuestion; }
 
-        const displayMsg = userTypedQuestion || (overrideText === '🎓 Grade 12 Old Qs' ? (subjectToSend || "🎓 Grade 12 မေးခွန်းဟောင်း") : overrideText.replace('[Old Q]', '').trim());
+        const displayMsg = userTypedQuestion || (overrideText === '🎓 Grade 12 Old Qs' ? (subjectToSend || "🎓 Grade 12 မေးခွန်းဟောင်း") : (overrideText || '').replace('[Old Q]', '').trim());
         const userMsg: ChatMessage = { id: generateId(), sender: 'user', text: displayMsg, attachments: [...pendingAttachments], timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) };
         setSessions(prev => prev.map(s => s.id === currentSessionId ? { ...s, messages: [...s.messages, userMsg] } : s));
         setInput(''); setPendingAttachments([]); setIsTyping(true);
