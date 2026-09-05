@@ -191,6 +191,7 @@ interface ChatMessage {
   gradingData?: GradingData;
   essayFeedbackData?: any;
   essayFeedbackText?: string;
+  labels?: any[];
 }
 
 interface ChatSession {
