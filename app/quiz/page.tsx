@@ -362,7 +362,7 @@ export default function QuizGeneratorPage() {
     }
   }, [chatMessages, stage]);
 
-  const getQuestionText = (q: Question): string => q?.text || q?.question || q?.statement || '';
+  const getQuestionText = (q: Question): string => q?.text || q?.question || (q as any)?.statement || '';
   const getCorrectAnswer = (q: Question): string => q?.correct || q?.correct_answer || '';
   const getOptions = (q: Question): string[] => q?.options || [];
   const getExplanation = (q: Question): string => q?.explanation || q?.explanation_mm || `အဖြေမှန်မှာ ${getCorrectAnswer(q)} ဖြစ်ပါသည်။`;
