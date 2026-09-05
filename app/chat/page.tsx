@@ -1863,7 +1863,7 @@ if (overrideText === '🎨 Diagram Guide' || (overrideText && overrideText.start
         const userTypedQuestion = input.trim();
         let messageToSend = userTypedQuestion;
         
-        if (overrideText !== '🎓 Grade 12 Old Qs') {
+        if (overrideText && overrideText !== '🎓 Grade 12 Old Qs') {
             const cleanTextOldQ = overrideText.replace('[Old Q]', '').trim();
             const yearMatch = cleanTextOldQ.match(/20\d{2}/);
             const paperMatch = cleanTextOldQ.match(/paper_?\d/i);
