@@ -905,7 +905,7 @@ export default function UltimateChatWorkspace() {
         if (profileRes.ok) {
             const profileData = await profileRes.json();
             localStorage.setItem('profile', JSON.stringify(profileData));
-            useAuthStore.getState().setUser(profileData); 
+            (useAuthStore.getState()as any).setUser(profileData); 
         }
       } catch (err) {
         console.error("Task completion failed", err);
