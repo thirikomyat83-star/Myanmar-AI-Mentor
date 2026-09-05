@@ -177,7 +177,7 @@ export default function OnboardingPage() {
     initial: { opacity: 0, x: 50, filter: "blur(4px)" },
     animate: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.4, ease: "easeOut" } },
     exit: { opacity: 0, x: -50, filter: "blur(4px)", transition: { duration: 0.3, ease: "easeIn" } }
-  };
+  }as const;
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFFDF8] text-[#3F4A3C] p-4 md:p-8 font-sans antialiased tracking-tight relative overflow-hidden selection:bg-[#F4EBDD] selection:text-[#5F8B7E]">
