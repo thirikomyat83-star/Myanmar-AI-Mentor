@@ -1671,11 +1671,11 @@ if (overrideText === '🎨 Diagram Guide' || (overrideText && overrideText.start
         textToCheck.startsWith('[Write Letter]') || 
         textToCheck.startsWith('[Submit Letter]') || 
         textToCheck === '[Submit Quiz Answers]' || 
-        textLower.startsWith('reading') || 
-        textLower.startsWith('grammar') || 
-        textLower.startsWith('essay') || 
-        textLower.startsWith('writing') || 
-        textLower.startsWith('letter');
+        textToCheck.startsWith('reading') || 
+        textToCheck.startsWith('grammar') || 
+        textToCheck.startsWith('essay') || 
+        textToCheck.startsWith('writing') || 
+        textToCheck.startsWith('letter');
     
     if (isEnglishIntent) {
         let topicToSend = textToCheck;
