@@ -350,7 +350,7 @@ export default function DashboardPage() {
   };
 
   const mainGridVariants = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } };
-  const genericItemVariants = { hidden: { opacity: 0, y: 25 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', bounce: 0.3 } } };
+  const genericItemVariants = { hidden: { opacity: 0, y: 25 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', bounce: 0.3 } } }as const;
 
   return (
     <div className="min-h-screen bg-[#FFFDF8] text-[#3F4A3C] font-sans antialiased tracking-tight relative overflow-x-hidden selection:bg-[#F4EBDD] selection:text-[#5F8B7E] pb-12">
