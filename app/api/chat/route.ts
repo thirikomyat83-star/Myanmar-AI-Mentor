@@ -6,7 +6,7 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { db } from "@/lib/db";
 import { users, profiles } from "@/lib/schema";
 import { eq } from "drizzle-orm";
-
+export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
 export async function POST(req: Request) {
