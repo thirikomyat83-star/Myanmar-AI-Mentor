@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from "react";
 
 // ==========================================
 // 1. TYPESCRIPT INTERFACES (Match Backend)
@@ -133,7 +134,7 @@ const ConfettiEffect = ({ topic }: { topic: string }) => {
 // ==========================================
 // 4. MAIN COMPONENT
 // ==========================================
-export default function LearningPathPage() {
+function LearningPathContent(){
   const router = useRouter();
   const searchParams = useSearchParams();
   const urlTopic = searchParams.get('topic') || '';
@@ -608,5 +609,18 @@ export default function LearningPathPage() {
         </AnimatePresence>
       </main>
     </div>
+  );
+}
+export default function LearningPathPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#FFFDF8] flex items-center justify-center text-[#5F8B7E] font-bold">
+          Loading Learning Path...
+        </div>
+      }
+    >
+      <LearningPathContent />
+    </Suspense>
   );
 }
