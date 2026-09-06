@@ -15,7 +15,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css'; 
-
+import { Suspense } from "react";
 // ==========================================
 // 1. EXTENSIVE VECTOR ICONS (Eco-Theme)
 // ==========================================
@@ -211,9 +211,8 @@ interface DialogueTurn {
 // ==========================================
 // 3. ULTIMATE AI WORKSPACE COMPONENT
 // ==========================================
-export default function UltimateChatWorkspace() {
+function ChatWorkspaceContent() {
   const router = useRouter();
-  
   const searchParams = useSearchParams();
   const taskId = searchParams.get('taskId');
   const subjectParam = searchParams.get('subject');
@@ -2713,5 +2712,19 @@ if (overrideText === '🎨 Diagram Guide' || (overrideText && overrideText.start
         </div>
       </main>
     </div>
+  );
+  
+}
+export default function UltimateChatWorkspace() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#FFFDF8] flex items-center justify-center text-[#5F8B7E] font-bold">
+          Loading Chat Space...
+        </div>
+      }
+    >
+      <ChatWorkspaceContent />
+    </Suspense>
   );
 }
