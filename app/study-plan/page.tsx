@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, useSearchParams } from 'next/navigation';
-
+import { Suspense } from "react";
 // ==========================================
 // 1. TYPESCRIPT INTERFACES
 // ==========================================
@@ -118,7 +118,7 @@ const parseLocalDate = (dateStr: string) => {
 // ==========================================
 // 3. MAIN COMPONENT
 // ==========================================
-export default function StudyPlannerPage() {
+function StudyPlanContent(){
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -736,5 +736,18 @@ export default function StudyPlannerPage() {
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       ` }} />
     </div>
+  );
+}
+export default function StudyPlanPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#FFFDF8] flex items-center justify-center text-[#5F8B7E] font-bold">
+          Loading Study Plan...
+        </div>
+      }
+    >
+      <StudyPlanContent />
+    </Suspense>
   );
 }

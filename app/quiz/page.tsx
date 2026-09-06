@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
-
+import { Suspense } from "react";
 // Import LaTeX utility
 import { cleanLatex } from '@/utils/latex';
 
@@ -104,7 +104,7 @@ const MOTIVATIONAL_QUOTES = [
 // ==========================================
 // 3. MAIN COMPONENT
 // ==========================================
-export default function QuizGeneratorPage() {
+function QuizGeneratorContent()  {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
@@ -1941,5 +1941,18 @@ export default function QuizGeneratorPage() {
 
       </main>
     </div>
+  );
+}
+export default function QuizGeneratorPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#FFFDF8] flex items-center justify-center text-[#5F8B7E] font-bold">
+          Loading Quiz...
+        </div>
+      }
+    >
+      <QuizGeneratorContent />
+    </Suspense>
   );
 }
